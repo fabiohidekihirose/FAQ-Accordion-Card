@@ -1,9 +1,13 @@
+let allQuestions = document.querySelectorAll('button') 
+let allAnswers = document.querySelectorAll('p')
+for(let i = 0; i < allQuestions.length; i++) {
+    allQuestions[i].onclick = function() {handleToggle(allQuestions[i].className, allAnswers[i].className)}
+}
+
 function handleToggle(buttonClass, answerNumber) {
     let answer = document.querySelector(`.${answerNumber}`)
     let question = document.querySelector(`.${buttonClass}`)
     let arrowImg = document.querySelector(`.${buttonClass} img`)
-    let allAnswers = document.querySelectorAll('p')
-    let allQuestions = document.querySelectorAll('button')
     for(let i = 0; i < allAnswers.length; i++) {
         if(allAnswers[i].style.display == 'block' && allAnswers[i].className != answerNumber) {
             document.querySelector(`p.${allAnswers[i].className}`).style.display = 'none'
